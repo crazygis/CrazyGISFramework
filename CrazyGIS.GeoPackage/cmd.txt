@@ -1,0 +1,5 @@
+D:\Code\DotNet\CrazyGISFramework\CrazyGIS.GeoPackage
+
+nuget pack CrazyGIS.GeoPackage.csproj -Prop Configuration=Release
+
+nuget push CrazyGIS.GeoPackage.1.0.5.0.nupkg
