@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using CrazyGIS.GeoPackage;
 using CrazyGIS.Graphical;
-using GeoAPI;
 using CrazyGIS.CoordinateConversion;
 using CrazyGIS.CoordinateConversion.Models;
 
