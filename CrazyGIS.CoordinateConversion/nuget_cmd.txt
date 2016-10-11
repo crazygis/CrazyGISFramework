@@ -1,0 +1,9 @@
+D:\Code\DotNet\CrazyGISFramework\CrazyGIS.CoordinateConversion
+
+nuget pack CrazyGIS.CoordinateConversion.csproj -Prop Configuration=Release
+
+nuget push CrazyGIS.CoordinateConversion.1.0.0.0.nupkg
+
+
+
+nuget spec

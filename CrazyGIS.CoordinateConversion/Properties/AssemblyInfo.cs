@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("CrazyGIS.CoordinateConversion")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("该类库用来对两个坐标系的坐标进行转换，需要使用七参数")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("CrazyGIS.CoordinateConversion")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright ©  2016 crazygis.com")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
