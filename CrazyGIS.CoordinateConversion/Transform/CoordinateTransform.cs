@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CrazyGIS.CoordinateConversion.Models;
+using System.Linq;
 
 namespace CrazyGIS.CoordinateConversion.Transform
 {
@@ -160,9 +161,9 @@ namespace CrazyGIS.CoordinateConversion.Transform
 		/// </summary>
 		/// <param name="sourceCoordinates">源坐标集合</param>
 		/// <returns>目标坐标集合</returns>
-		public List<ICoordinate> SourceToTargetBatch(List<ICoordinate> sourceCoordinates)
+		public List<ICoordinate> SourceToTargetBatch(IEnumerable<ICoordinate> sourceCoordinates)
 		{
-			if(sourceCoordinates == null || sourceCoordinates.Count == 0)
+			if(sourceCoordinates == null || sourceCoordinates.Count() == 0)
 			{
 				return null;
 			}
@@ -179,10 +180,8 @@ namespace CrazyGIS.CoordinateConversion.Transform
 			// 七参数模型，对空间直角坐标进行转换，转换后同样是空间直角坐标
 			BursaWolfTransform bursa_source = new BursaWolfTransform(sevenParams);
 
-			ICoordinate sourceCoordinate = null;
-			for (int i = 0; i < sourceCoordinates.Count; i++)
+			foreach(ICoordinate sourceCoordinate in sourceCoordinates)
 			{
-				sourceCoordinate = sourceCoordinates[i];
 				// 如果源是平面坐标
 				// 1.平面坐标转高斯坐标;2.高斯反算,转为球面坐标
 				if (sourceCT == CoordinateType.Plane)
@@ -227,9 +226,9 @@ namespace CrazyGIS.CoordinateConversion.Transform
 		/// </summary>
 		/// <param name="targetCoordiantes">目标坐标集合</param>
 		/// <returns>源坐标集合</returns>
-		public List<ICoordinate> TargetToSourceBatch(List<ICoordinate> targetCoordiantes)
+		public List<ICoordinate> TargetToSourceBatch(IEnumerable<ICoordinate> targetCoordiantes)
 		{
-			if (targetCoordiantes == null || targetCoordiantes.Count == 0)
+			if (targetCoordiantes == null || targetCoordiantes.Count() == 0)
 			{
 				return null;
 			}
@@ -246,10 +245,8 @@ namespace CrazyGIS.CoordinateConversion.Transform
 			// 七参数模型，对空间直角坐标进行转换，转换后同样是空间直角坐标
 			BursaWolfTransform bursa_target = new BursaWolfTransform(sevenParams.Reverse());
 
-			ICoordinate targetCoordinate = null;
-			for (int i = 0; i < targetCoordiantes.Count; i++)
+			foreach(ICoordinate targetCoordinate in targetCoordiantes)
 			{
-				targetCoordinate = targetCoordiantes[i];
 				// 如果目标是平面坐标
 				// 1.平面坐标转高斯坐标;2.高斯反算,转为球面坐标
 				if (targetCT == CoordinateType.Plane)

@@ -51,7 +51,7 @@ namespace CrazyGIS.CoordinateConversion
 		/// </summary>
 		/// <param name="sourceCoordinates">源坐标集合</param>
 		/// <returns>目标坐标集合</returns>
-		public List<ICoordinate> SourceToTargetBatch(List<ICoordinate> sourceCoordinates)
+		public List<ICoordinate> SourceToTargetBatch(IEnumerable<ICoordinate> sourceCoordinates)
 		{
 			return coordinateTransform.SourceToTargetBatch(sourceCoordinates);
 		}
@@ -61,7 +61,7 @@ namespace CrazyGIS.CoordinateConversion
 		/// </summary>
 		/// <param name="targetCoordiantes">目标坐标集合</param>
 		/// <returns>源坐标集合</returns>
-		public List<ICoordinate> TargetToSourceBatch(List<ICoordinate> targetCoordiantes)
+		public List<ICoordinate> TargetToSourceBatch(IEnumerable<ICoordinate> targetCoordiantes)
 		{
 			return coordinateTransform.TargetToSourceBatch(targetCoordiantes);
 		}
