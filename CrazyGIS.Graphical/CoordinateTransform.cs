@@ -556,7 +556,7 @@ namespace CrazyGIS.Graphical
 			{
 				double area = 0;
 
-				// 循环多边形的顶点(因最后一个点与第一个点相同，故排除在外)
+				// 循环多边形的顶点
 				for (int i = 0; i < coordinates.Count; i++)
 				{
 					ICoordinate p1 = coordinates[i];

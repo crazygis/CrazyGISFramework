@@ -11,7 +11,7 @@
 		<iconUrl>http://www.crazygis.com/content/images/crazygis.png</iconUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>$description$</description>
-		<releaseNotes>add library.</releaseNotes>
+		<releaseNotes>update interface</releaseNotes>
 		<copyright>Copyright 2016 www.crazygis.com</copyright>
 		<tags>crazygis coordinate conversion</tags>
 	</metadata>
