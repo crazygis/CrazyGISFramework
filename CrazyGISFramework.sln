@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyGISFramework", "CrazyGISFramework\CrazyGISFramework.csproj", "{7CD2D8B6-6593-465E-8EC5-A3584D5326BE}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyGIS.Graphical", "CrazyGIS.Graphical\CrazyGIS.Graphical.csproj", "{3F0A1EF4-3BDA-4EF3-8DF5-42218D59AE5B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyGIS.CoordinateConversion", "CrazyGIS.CoordinateConversion\CrazyGIS.CoordinateConversion.csproj", "{B8841515-33D8-49C1-9B89-8F9A4F47640E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyGIS.TilePackage", "CrazyGIS.TilePackage\CrazyGIS.TilePackage.csproj", "{F3C38D10-7B2C-4F52-86E8-995F8D54CC84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +36,10 @@ Global
 		{B8841515-33D8-49C1-9B89-8F9A4F47640E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8841515-33D8-49C1-9B89-8F9A4F47640E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8841515-33D8-49C1-9B89-8F9A4F47640E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3C38D10-7B2C-4F52-86E8-995F8D54CC84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3C38D10-7B2C-4F52-86E8-995F8D54CC84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3C38D10-7B2C-4F52-86E8-995F8D54CC84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3C38D10-7B2C-4F52-86E8-995F8D54CC84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
