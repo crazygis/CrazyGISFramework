@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyGIS.CoordinateConversi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyGIS.TilePackage", "CrazyGIS.TilePackage\CrazyGIS.TilePackage.csproj", "{F3C38D10-7B2C-4F52-86E8-995F8D54CC84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyGIS.Toolkit", "CrazyGIS.Toolkit\CrazyGIS.Toolkit.csproj", "{16B785A3-03B0-4127-81B4-6FFA7766167F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{F3C38D10-7B2C-4F52-86E8-995F8D54CC84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3C38D10-7B2C-4F52-86E8-995F8D54CC84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3C38D10-7B2C-4F52-86E8-995F8D54CC84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16B785A3-03B0-4127-81B4-6FFA7766167F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16B785A3-03B0-4127-81B4-6FFA7766167F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16B785A3-03B0-4127-81B4-6FFA7766167F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16B785A3-03B0-4127-81B4-6FFA7766167F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

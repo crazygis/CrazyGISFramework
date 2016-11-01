@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F3C38D10-7B2C-4F52-86E8-995F8D54CC84}</ProjectGuid>
+    <ProjectGuid>{16B785A3-03B0-4127-81B4-6FFA7766167F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CrazyGIS.TilePackage</RootNamespace>
-    <AssemblyName>CrazyGIS.TilePackage</AssemblyName>
+    <RootNamespace>CrazyGIS.Toolkit</RootNamespace>
+    <AssemblyName>CrazyGIS.Toolkit</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -33,6 +33,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.102.0\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,9 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\TilePackageTableCreator.cs" />
-    <Compile Include="TilePackageManager.cs" />
+    <Compile Include="ImageTool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLiteTool.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

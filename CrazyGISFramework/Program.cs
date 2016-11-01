@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CrazyGIS.CoordinateConversion;
 using CrazyGIS.Graphical;
 using CrazyGIS.Graphical.Models;
+using System.IO;
 //using CrazyGIS.CoordinateConversion.Models;
 
 namespace CrazyGISFramework
@@ -14,11 +15,13 @@ namespace CrazyGISFramework
 	{
 		static void Main(string[] args)
 		{
-			CoordinateTransform transform = new CoordinateTransform();
-			SpherePoint coor1 = new SpherePoint(112.97, 28.23);
-			SpherePoint result = transform.WGS84_To_GCJ02(coor1);
+			//CoordinateTransform transform = new CoordinateTransform();
+			//SpherePoint coor1 = new SpherePoint(112.97, 28.23);
+			//SpherePoint result = transform.WGS84_To_GCJ02(coor1);
 
-			Console.WriteLine(result.lng + "," + result.lat);
+			//Console.WriteLine(result.lng + "," + result.lat);
+
+			IconInputDatabase();
 		}
 
 		static void SevenParamsConversion()
@@ -52,6 +55,22 @@ namespace CrazyGISFramework
 
 			//source = conversionService.TargetToSource(target);
 			//Console.WriteLine("反算出来的源：" + source.xAxis + "," + source.yAxis);
+		}
+
+		static void IconInputDatabase()
+		{
+			string fileFolder = @"D:\Code\CJ\水上公安\HarborPoliceSolution\HarborPoliceWebApp\Content\police";
+			string dbFileName = @"D:\Code\CJ\水上公安\HarborPoliceSolution\HarborPoliceWebApp\App_Data\HarborPolice.db";
+
+			DirectoryInfo directoryInfo = new DirectoryInfo(fileFolder);
+			foreach (FileInfo fileInfo in directoryInfo.GetFiles())
+			{
+				if(fileInfo.Extension == ".png" || fileInfo.Extension == ".jpg")
+				{
+					Console.WriteLine(fileInfo.FullName);
+				}
+			}
+
 		}
 	}
 }
