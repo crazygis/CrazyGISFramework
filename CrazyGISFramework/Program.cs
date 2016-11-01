@@ -7,6 +7,9 @@ using CrazyGIS.CoordinateConversion;
 using CrazyGIS.Graphical;
 using CrazyGIS.Graphical.Models;
 using System.IO;
+using CrazyGIS.Toolkit;
+using System.Data.SQLite;
+using System.Data;
 //using CrazyGIS.CoordinateConversion.Models;
 
 namespace CrazyGISFramework
@@ -61,15 +64,46 @@ namespace CrazyGISFramework
 		{
 			string fileFolder = @"D:\Code\CJ\水上公安\HarborPoliceSolution\HarborPoliceWebApp\Content\police";
 			string dbFileName = @"D:\Code\CJ\水上公安\HarborPoliceSolution\HarborPoliceWebApp\App_Data\HarborPolice.db";
+			string sql = "INSERT INTO icon (id,data,enabled,time,remark) VALUES(:id,:data,:enabled,:time,:remark)";
+
+			SQLiteConnection connection = SQLiteTool.GetConnection(dbFileName);
+			if(connection == null)
+			{
+				Console.WriteLine("sqlite connection error");
+				return;
+			}
+
+			if (connection.State == ConnectionState.Closed)
+			{
+				connection.Open();
+			}
 
 			DirectoryInfo directoryInfo = new DirectoryInfo(fileFolder);
 			foreach (FileInfo fileInfo in directoryInfo.GetFiles())
 			{
 				if(fileInfo.Extension == ".png" || fileInfo.Extension == ".jpg")
 				{
-					Console.WriteLine(fileInfo.FullName);
+					byte[] imageData = ImageTool.ImageToBytes(fileInfo.FullName);
+					Dictionary<string, object> paramters = new Dictionary<string, object>();
+					paramters.Add("id", Guid.NewGuid().ToString().ToLower());
+					paramters.Add("data", imageData);
+					paramters.Add("enabled", 1);
+					paramters.Add("time", DateTime.Now);
+					paramters.Add("remark", null);
+
+					bool success = SQLiteTool.ExecuteNonQuery(connection, sql, paramters);
+					if(success)
+					{
+						Console.WriteLine("success:" + fileInfo.FullName);
+					}
+					else
+					{
+						Console.WriteLine("failure:" + fileInfo.FullName);
+					}
 				}
 			}
+
+			connection.Close();
 
 		}
 	}
