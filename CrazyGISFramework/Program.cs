@@ -23,8 +23,6 @@ namespace CrazyGISFramework
 			//SpherePoint result = transform.WGS84_To_GCJ02(coor1);
 
 			//Console.WriteLine(result.lng + "," + result.lat);
-
-			IconInputDatabase();
 		}
 
 		static void SevenParamsConversion()
