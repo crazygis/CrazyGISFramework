@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CrazyGIS.TilePackage.Database
 {
-	public class TilePackageTableCreator
+	public class TilePackageImporter
 	{
+
 	}
 }

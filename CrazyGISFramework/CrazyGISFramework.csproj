@@ -68,6 +68,10 @@
       <Project>{3f0a1ef4-3bda-4ef3-8df5-42218d59ae5b}</Project>
       <Name>CrazyGIS.Graphical</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CrazyGIS.TilePackage\CrazyGIS.TilePackage.csproj">
+      <Project>{f3c38d10-7b2c-4f52-86e8-995f8d54cc84}</Project>
+      <Name>CrazyGIS.TilePackage</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CrazyGIS.Toolkit\CrazyGIS.Toolkit.csproj">
       <Project>{16b785a3-03b0-4127-81b4-6ffa7766167f}</Project>
       <Name>CrazyGIS.Toolkit</Name>

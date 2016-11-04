@@ -19,7 +19,7 @@ namespace CrazyGIS.Toolkit
 				Image image = Image.FromFile(imageFullName);
 				return imageToBytes(image);
 			}
-			catch(Exception e)
+			catch
 			{
 				return null;
 			}

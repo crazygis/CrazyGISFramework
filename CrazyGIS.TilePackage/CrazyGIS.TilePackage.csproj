@@ -33,6 +33,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.102.0\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,16 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\TilePackageTableCreator.cs" />
-    <Compile Include="Models\Extent.cs" />
-    <Compile Include="Models\Projection.cs" />
-    <Compile Include="Models\Scale.cs" />
+    <Compile Include="Database\TilePackageCreator.cs" />
+    <Compile Include="Database\TilePackageExporter.cs" />
+    <Compile Include="Database\TilePackageImporter.cs" />
+    <Compile Include="Database\TilePackageReader.cs" />
+    <Compile Include="Models\Constant.cs" />
+    <Compile Include="Models\CoordinateExtent.cs" />
+    <Compile Include="Models\TileProjection.cs" />
+    <Compile Include="Models\ProjectionType.cs" />
+    <Compile Include="Models\TileExtent.cs" />
+    <Compile Include="Models\Tile.cs" />
+    <Compile Include="Manager\ResolutionManager.cs" />
+    <Compile Include="Manager\ScaleManager.cs" />
+    <Compile Include="Models\Zoom.cs" />
     <Compile Include="TilePackageManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Manager\ProjectionManager.cs" />
+    <Compile Include="Manager\ZoomManager.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Transform\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

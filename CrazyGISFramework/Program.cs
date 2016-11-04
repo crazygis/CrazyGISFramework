@@ -10,7 +10,7 @@ using System.IO;
 using CrazyGIS.Toolkit;
 using System.Data.SQLite;
 using System.Data;
-//using CrazyGIS.CoordinateConversion.Models;
+using CrazyGIS.TilePackage.Database;
 
 namespace CrazyGISFramework
 {
@@ -18,11 +18,7 @@ namespace CrazyGISFramework
 	{
 		static void Main(string[] args)
 		{
-			//CoordinateTransform transform = new CoordinateTransform();
-			//SpherePoint coor1 = new SpherePoint(112.97, 28.23);
-			//SpherePoint result = transform.WGS84_To_GCJ02(coor1);
-
-			//Console.WriteLine(result.lng + "," + result.lat);
+			TilePackageTest();
 		}
 
 		static void SevenParamsConversion()
@@ -103,6 +99,13 @@ namespace CrazyGISFramework
 
 			connection.Close();
 
+		}
+
+		static void TilePackageTest()
+		{
+			TilePackageCreator creator = new TilePackageCreator();
+			creator.Create("D:\\test.tpkg");
+			Console.WriteLine("OK");
 		}
 	}
 }
