@@ -159,30 +159,30 @@ namespace CrazyGIS.TilePackage.Database
 				sql.Append("	'China Geodetic Coordinate System 2000'");
 				sql.Append(");");
 
-				// table:images
-				sql.Append("CREATE TABLE images (");
-				sql.Append("    tile_data BLOB,");
-				sql.Append("    tile_id   TEXT");
-				sql.Append(");");
+				//// table:images
+				//sql.Append("CREATE TABLE images (");
+				//sql.Append("    tile_data BLOB,");
+				//sql.Append("    tile_id   TEXT");
+				//sql.Append(");");
 
-				// table:map
-				sql.Append("CREATE TABLE map (");
-				sql.Append("    zoom_level  INTEGER,");
-				sql.Append("    tile_column INTEGER,");
-				sql.Append("    tile_row    INTEGER,");
-				sql.Append("    tile_id     TEXT");
-				sql.Append(");");
+				//// table:map
+				//sql.Append("CREATE TABLE map (");
+				//sql.Append("    zoom_level  INTEGER,");
+				//sql.Append("    tile_column INTEGER,");
+				//sql.Append("    tile_row    INTEGER,");
+				//sql.Append("    tile_id     TEXT");
+				//sql.Append(");");
 
-				// view:tiles
-				sql.Append("CREATE VIEW tiles AS");
-				sql.Append("    SELECT map.ROWID AS id,");
-				sql.Append("           map.zoom_level AS zoom_level,");
-				sql.Append("           map.tile_column AS tile_column,");
-				sql.Append("           map.tile_row AS tile_row,");
-				sql.Append("           images.tile_data AS tile_data");
-				sql.Append("      FROM map");
-				sql.Append("           JOIN");
-				sql.Append("           images ON images.tile_id = map.tile_id;");
+				//// view:tiles
+				//sql.Append("CREATE VIEW tiles AS");
+				//sql.Append("    SELECT map.ROWID AS id,");
+				//sql.Append("           map.zoom_level AS zoom_level,");
+				//sql.Append("           map.tile_column AS tile_column,");
+				//sql.Append("           map.tile_row AS tile_row,");
+				//sql.Append("           images.tile_data AS tile_data");
+				//sql.Append("      FROM map");
+				//sql.Append("           JOIN");
+				//sql.Append("           images ON images.tile_id = map.tile_id;");
 
 				// table:cache_scheme
 				sql.Append("CREATE TABLE cache_scheme (");
@@ -276,6 +276,15 @@ namespace CrazyGIS.TilePackage.Database
 				sql.Append("INSERT INTO cache_scheme_level VALUES(3857,18,0.597164,2256.994353,262144,262144);");
 				sql.Append("INSERT INTO cache_scheme_level VALUES(3857,19,0.298582,1128.497176,524288,524288);");
 				sql.Append("INSERT INTO cache_scheme_level VALUES(3857,20,0.149291,564.248588,1048576,1048576);");
+
+				// table:tiles
+				sql.Append("CREATE TABLE tiles (");
+				sql.Append("    zoom_level  INTEGER NOT NULL,");
+				sql.Append("    tile_column INTEGER NOT NULL,");
+				sql.Append("    tile_row    INTEGER NOT NULL,");
+				sql.Append("    tile_data   BLOB    NOT NULL,");
+				sql.Append("    PRIMARY KEY (zoom_level,tile_column,tile_row)");
+				sql.Append(");");
 
 				// execute
 				command.CommandText = sql.ToString();

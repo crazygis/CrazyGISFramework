@@ -9,10 +9,6 @@ namespace CrazyGIS.TilePackage.Manager
 {
 	public class ResolutionManager
 	{
-		private static double MAX_RESOLUTION_4326 = 1.40625;
-		private static double MAX_RESOLUTION_4490 = 1.40625;
-		private static double MAX_RESOLUTION_3857 = 156543.033928;
-
 		/// <summary>
 		/// 获取分辨率
 		/// </summary>
@@ -31,13 +27,13 @@ namespace CrazyGIS.TilePackage.Manager
 			switch (projType)
 			{
 				case ProjectionType.EPSG_3857:
-					maxResolution = MAX_RESOLUTION_3857;
+					maxResolution = Constant.MAX_RESOLUTION_3857;
 					break;
 				case ProjectionType.EPSG_4326:
-					maxResolution = MAX_RESOLUTION_4326;
+					maxResolution = Constant.MAX_RESOLUTION_4326;
 					break;
 				case ProjectionType.EPSG_4490:
-					maxResolution = MAX_RESOLUTION_4490;
+					maxResolution = Constant.MAX_RESOLUTION_4490;
 					break;
 				default:
 					break;

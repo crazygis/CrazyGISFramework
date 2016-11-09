@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrazyGIS.TilePackage.Models
+namespace CrazyGIS.TilePackage.Manager
 {
-	public enum ProjectionType
+	public class TileManager
 	{
-		EPSG_3857 = 3857,
-		EPSG_4326 = 4326,
-		EPSG_4490 = 4490
+
 	}
 }

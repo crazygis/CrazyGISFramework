@@ -11,6 +11,7 @@ using CrazyGIS.Toolkit;
 using System.Data.SQLite;
 using System.Data;
 using CrazyGIS.TilePackage.Database;
+using System.Net;
 
 namespace CrazyGISFramework
 {
@@ -18,7 +19,15 @@ namespace CrazyGISFramework
 	{
 		static void Main(string[] args)
 		{
-			TilePackageTest();
+			//TilePackageTest();
+
+			double dpi = 591658710.909131 / (2 * Math.PI * 6378137 * 1.40625 / 360 / 0.0254);
+			Console.WriteLine(dpi);
+			double scale = (96 * 2 * Math.PI * 6378137 * 1.40625 / 360 / 0.0254);
+			Console.WriteLine(scale);
+
+			double resolution = 156543.033928 * 360 / (2 * Math.PI * 6378137);
+			Console.WriteLine(resolution);
 		}
 
 		static void SevenParamsConversion()
@@ -106,6 +115,28 @@ namespace CrazyGISFramework
 			TilePackageCreator creator = new TilePackageCreator();
 			creator.Create("D:\\test.tpkg");
 			Console.WriteLine("OK");
+		}
+
+		static void UrlToBytesTest()
+		{
+			// http://www.crazygis.com/Tiles/nanjing/maritime/12/657x3399.png
+			// http://t3.tianditu.com/DataServer?T=cva_c&x=3399&y=660&l=12
+			// http://t3.tianditu.com/DataServer?T=cva_c&x=3401&y=660&l=12
+			string UrlImg = "http://www.crazygis.com/Tiles/nanjing/maritime/12/657x3399.png";
+			WebClient webClient = new WebClient();
+			webClient.Credentials = CredentialCache.DefaultCredentials;
+			//以数组的形式下载指定文件  
+			try
+			{
+				byte[] byteData = webClient.DownloadData(UrlImg);
+
+				Console.WriteLine("success");
+
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
 		}
 	}
 }

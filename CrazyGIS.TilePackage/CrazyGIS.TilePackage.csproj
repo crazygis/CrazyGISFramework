@@ -48,6 +48,7 @@
     <Compile Include="Database\TilePackageExporter.cs" />
     <Compile Include="Database\TilePackageImporter.cs" />
     <Compile Include="Database\TilePackageReader.cs" />
+    <Compile Include="Manager\TileManager.cs" />
     <Compile Include="Models\Constant.cs" />
     <Compile Include="Models\CoordinateExtent.cs" />
     <Compile Include="Models\TileProjection.cs" />
