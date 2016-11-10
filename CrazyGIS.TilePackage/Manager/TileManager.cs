@@ -51,11 +51,11 @@ namespace CrazyGIS.TilePackage.Manager
 		/// <param name="row">行号</param>
 		/// <param name="column">列号</param>
 		/// <returns>Tile对象</returns>
-		public Tile GetTileImage(string connectionStringName, int level, int row, int column)
+		public Tile GetTile(string connectionStringName, int level, int row, int column)
 		{
 			if (string.IsNullOrEmpty(connectionStringName))
 			{
-				return this.GetTileImage(level, row, column);
+				return this.GetTile(level, row, column);
 			}
 			try
 			{
@@ -66,8 +66,8 @@ namespace CrazyGIS.TilePackage.Manager
 				}
 				byte[] data = this.getTileData(connection, level, row, column);
 
-				Tile tileImage = new Tile(level, row, column, data);
-				return tileImage;
+				Tile tile = new Tile(level, row, column, data);
+				return tile;
 			}
 			catch (Exception e)
 			{
@@ -82,7 +82,7 @@ namespace CrazyGIS.TilePackage.Manager
 		/// <param name="row">行号</param>
 		/// <param name="column">列号</param>
 		/// <returns>Tile对象</returns>
-		public Tile GetTileImage(int level, int row, int column)
+		public Tile GetTile(int level, int row, int column)
 		{
 			try
 			{

@@ -12,7 +12,7 @@ namespace CrazyGIS.TilePackage
     {
 		public TilePackageManager()
 		{
-			FileStream fs = new FileStream("", FileMode.Open);
+			
 			
 		}
 
