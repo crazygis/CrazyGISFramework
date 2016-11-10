@@ -17,7 +17,5 @@ namespace CrazyGIS.TilePackage.Models
 		public CoordinateExtent CoordExtent { get; set; }
 
 		public IDictionary<int, TileExtent> TileExtentCollection { get; set; }
-
-		public IDictionary<int, Zoom> ZoomCollection { get; set; }
 	}
 }

@@ -14,6 +14,14 @@ namespace CrazyGIS.TilePackage.Models
 
 		public int ZoomLevel { get; set; }
 
+		public double ZoomResolution { get; set; }
+
+		public double ZoomScale { get; set; }
+
+		public int RowNumber { get; set; }
+
+		public int ColumnNumber { get; set; }
+
 		public int MinRowIndex { get; set; }
 
 		public int MinColumnIndex { get; set; }
