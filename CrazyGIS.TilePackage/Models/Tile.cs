@@ -8,6 +8,8 @@ namespace CrazyGIS.TilePackage.Models
 {
 	public class Tile
 	{
+		public Uri SourceUri { get; set; }
+
 		public int Level { get; set; }
 
 		public int Row { get; set; }

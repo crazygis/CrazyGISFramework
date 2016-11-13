@@ -40,6 +40,11 @@ namespace CrazyGIS.Toolkit
 		{
 			bool result = false;
 
+			if (connection.State == ConnectionState.Closed)
+			{
+				connection.Open();
+			}
+
 			using (SQLiteCommand command = connection.CreateCommand())
 			{
 				command.CommandText = sql;
@@ -59,6 +64,11 @@ namespace CrazyGIS.Toolkit
 
 				int rowCount = command.ExecuteNonQuery();
 				result = rowCount != 0;
+			}
+
+			if (connection.State == ConnectionState.Open)
+			{
+				connection.Close();
 			}
 
 			return result;

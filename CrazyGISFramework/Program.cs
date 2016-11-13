@@ -12,6 +12,12 @@ using System.Data.SQLite;
 using System.Data;
 using CrazyGIS.TilePackage.Database;
 using System.Net;
+using System.Text.RegularExpressions;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Collections;
+using System.Collections.Concurrent;
+using System.Threading;
 
 namespace CrazyGISFramework
 {
@@ -127,12 +133,10 @@ namespace CrazyGISFramework
 			string UrlImg = "http://www.crazygis.com/Tiles/nanjing/maritime/12/657x3399.png";
 			WebClient webClient = new WebClient();
 			webClient.Credentials = CredentialCache.DefaultCredentials;
-			//以数组的形式下载指定文件  
+			byte[] data = null;
 			try
 			{
-				byte[] byteData = webClient.DownloadData(UrlImg);
-
-				Console.WriteLine("success");
+				data = webClient.DownloadData(UrlImg);
 
 			}
 			catch (Exception e)
@@ -143,10 +147,98 @@ namespace CrazyGISFramework
 
 		static void UriTest()
 		{
-			Uri uri = new Uri("http://www.crazygis.com/Tiles/nanjing/maritime/{z}/657x3399.png");
-			Uri uri2 = new Uri(@"D:\test.tpkg");
+			Uri uri = new Uri("http://www.crazygis.com/Tiles/nanjing/maritime/12/657x3399.png");
+			Uri uri2 = new Uri(@"D:\test.png");
 			Console.WriteLine(uri.AbsoluteUri);
+			Console.WriteLine(uri2.AbsoluteUri);
+			byte[] data = null;
+			try
+			{
+				Image image = Image.FromFile(@"D:\test1.png");
+				data = imageToBytes(image);
+			}
+			catch(Exception e)
+			{
+				Console.WriteLine(e.Message);
+				data = null;
+			}
 
+
+
+			//string message = "http://t{0-7}.tianditu.com/DataServer?T=img_c&x={x}&y={y}&l={z}";
+			//foreach (Match mch in Regex.Matches(message, "{([a-z])-([a-z])}|{(\\d)-(\\d)}"))
+			//{
+			//	string result = mch.Value.Trim();
+			//	string a = result.Substring(1, 1);
+			//	string b = result.Substring(3, 1);
+
+			//	int start = Encoding.ASCII.GetBytes(a)[0];
+			//	int end = Encoding.ASCII.GetBytes(b)[0];
+
+			//	for(int i = start; i <= end; i++)
+			//	{
+			//		byte[] array = new byte[1];
+			//		array[0] = (byte)(Convert.ToInt32(i));
+			//		string domain = Encoding.ASCII.GetString(array);
+			//		string url = message.Replace(result, domain);
+			//		Console.WriteLine(url);
+			//	}
+
+			//	//Console.WriteLine(a);
+			//	//Console.WriteLine(start);
+			//	//Console.WriteLine(b);
+			//	//Console.WriteLine(end);
+			//}
+
+			ConcurrentQueue<string> test = new ConcurrentQueue<string>();
+			//Interlocked.Increment(ref successCount);
+
+			//int counter = 0;
+
+			//Task.Factory.StartNew(() =>
+			//	Parallel.ForEach(items,
+			//		new ParallelOptions
+			//		{
+			//			MaxDegreeOfParallelism = 4
+			//		},
+			//		item => {
+			//			DoSomething(item);
+			//			Interlocked.Increment(ref counter);
+			//		});
+			//);
+		}
+
+		static byte[] imageToBytes(Image image)
+		{
+			ImageFormat format = image.RawFormat;
+			using (MemoryStream ms = new MemoryStream())
+			{
+				if (format.Equals(ImageFormat.Jpeg))
+				{
+					image.Save(ms, ImageFormat.Jpeg);
+				}
+				else if (format.Equals(ImageFormat.Png))
+				{
+					image.Save(ms, ImageFormat.Png);
+				}
+				else if (format.Equals(ImageFormat.Bmp))
+				{
+					image.Save(ms, ImageFormat.Bmp);
+				}
+				else if (format.Equals(ImageFormat.Gif))
+				{
+					image.Save(ms, ImageFormat.Gif);
+				}
+				else if (format.Equals(ImageFormat.Icon))
+				{
+					image.Save(ms, ImageFormat.Icon);
+				}
+				byte[] buffer = new byte[ms.Length];
+				//Image.Save()会改变MemoryStream的Position，需要重新Seek到Begin
+				ms.Seek(0, SeekOrigin.Begin);
+				ms.Read(buffer, 0, buffer.Length);
+				return buffer;
+			}
 		}
 	}
 }

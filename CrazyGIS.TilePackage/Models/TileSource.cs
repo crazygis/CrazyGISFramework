@@ -12,18 +12,19 @@ namespace CrazyGIS.TilePackage.Models
 	public class TileSource
 	{
 		/// <summary>
-		/// 瓦片源类型
-		/// </summary>
-		public TileSourceType SourceType { get; set; }
-		/// <summary>
 		/// 投影类型
 		/// </summary>
 		public ProjectionType ProjType { get; set; }
 
 		/// <summary>
-		/// 路径集合
+		/// 瓦片源类型
 		/// </summary>
-		public IEnumerable<string> Urls { get; set; }
+		public TileSourceType SourceType { get; set; }
+
+		/// <summary>
+		/// 数据源路径
+		/// </summary>
+		public string SourceUrl { get; set; }
 
 		/// <summary>
 		/// 坐标范围
